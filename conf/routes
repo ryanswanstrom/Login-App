@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+# Import Secure routes
+*      /                						module:secure
+GET     /robots.txt                             Application.robots
+GET     /sitemap.xml                            Application.sitemap
+GET		/profile/{username}						UsersOpen.show
+GET		/editProfile							Users.edit
+POST	/editProfile							Users.update
+GET		/register								UsersOpen.register
+POST	/register								UsersOpen.add
+GET		/dashboard								Users.show
+GET		/verify/email/{uuid}					UsersOpen.activate
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

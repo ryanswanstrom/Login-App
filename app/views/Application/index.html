@@ -1,0 +1,13 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<header><h2>Welcome to ${play.configuration['application.name']}</h2></header>
+
+<p>Here is a list of users</p>
+
+<ul>
+#{list users}
+ <li>#{a @UsersOpen.show(_.username)}${_.username}#{/a}</li>
+#{/list}
+</ul>
+

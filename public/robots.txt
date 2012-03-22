@@ -1,0 +1,4 @@
+# robots.txt file for your site
+User-agent: *
+Disallow: /login
+Sitemap: http://Yoursite.com/sitemap.xml

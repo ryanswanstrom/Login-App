@@ -1,0 +1,10 @@
+# forget these directories
+modules*
+precompiled*
+test-result*
+eclipse*
+war*
+logs*
+nbproject*
+tmp*
+
