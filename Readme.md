@@ -1,6 +1,6 @@
 # Play Framework Login App
 
-This app provides the basics of quickly setting up a Play Framework web application.
+This app provides the basics of quickly setting up a Play Framework 1.2 web application.
 
 # Features
 
