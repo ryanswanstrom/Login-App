@@ -34,21 +34,21 @@ public class UsersOpen extends Controller {
 	}
 	
 	public static void add(@Required @MinSize(2)String username, @Required @MinSize(6)String password, @Required @Equals("password") String pwConfirm, @Required @Email String email) throws Throwable {
-		if (validation.hasErrors()) {
+		if (Validation.hasErrors()) {
 			params.flash();
-			validation.keep();
+			Validation.keep();
 			register();
 		}
 		if (User.count("byUsername", username) > 0) {
-			validation.addError("username", "username already taken");
+			Validation.addError("username", "username already taken");
 			params.flash();
-			validation.keep();
+			Validation.keep();
 			register();
 		}
 		if (User.count("byEmail", email) > 0) {
-			validation.addError("email", "email already taken");
+			Validation.addError("email", "email already taken");
 			params.flash();
-			validation.keep();
+			Validation.keep();
 			register();
 		}
 				

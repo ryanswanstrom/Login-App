@@ -3,16 +3,15 @@ package controllers;
 import java.io.File;
 import java.util.List;
 
+import models.BaseModel.Valid;
 import models.User;
-import play.Logger;
 import play.mvc.Controller;
-import play.mvc.Http.Request;
 
 
 public class Application extends Controller {
 
     public static void index() {
-    	List<User> users = User.findAll();
+    	List<User> users = User.find("byValidAndActive", Valid.Y, Valid.Y).fetch(10);
         render(users);
     }
     
@@ -21,6 +20,15 @@ public class Application extends Controller {
      */
     public static void robots() {
         File file = play.Play.getFile("public/robots.txt");
+        response.cacheFor("24h");
+        renderBinary(file);
+    }
+
+    /**
+     * action to open the robots.txt file.
+     */
+    public static void humans() {
+        File file = play.Play.getFile("public/humans.txt");
         response.cacheFor("24h");
         renderBinary(file);
     }

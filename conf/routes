@@ -7,14 +7,18 @@ GET     /                                       Application.index
 # Import Secure routes
 *      /                						module:secure
 GET     /robots.txt                             Application.robots
+GET     /humans.txt                             Application.humans
 GET     /sitemap.xml                            Application.sitemap
-GET		/profile/{username}						UsersOpen.show
-GET		/editProfile							Users.edit
-POST	/editProfile							Users.update
-GET		/register								UsersOpen.register
-POST	/register								UsersOpen.add
-GET		/dashboard								Users.show
-GET		/verify/email/{uuid}					UsersOpen.activate
+GET		/profile/{username}						Users.show
+GET		/editProfile							UsersSecure.edit
+POST	/editProfile							UsersSecure.update
+GET		/register								Users.register
+POST	/register								Users.add
+GET		/dashboard								UsersSecure.dashboard
+GET		/verify/email/{uuid}					Users.activate
+GET		/reset/password/{uuid}  				Users.resetPasswordShow
+GET		/forgot/password						Users.forgotPassword
+GET		/forgot/username						Users.forgotUsername
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

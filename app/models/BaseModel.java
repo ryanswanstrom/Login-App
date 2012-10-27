@@ -12,4 +12,9 @@ public class BaseModel extends Model {
 	public BaseModel() {
 		this.valid = Valid.Y;
 	}
+	
+	public void invalidate() {
+	    this.valid = Valid.N;
+	    this.save();
+	}
 }

@@ -1,40 +1,48 @@
 #{extends 'main.html' /}
 #{set title:'Login' /}
 
-<article id="form">
-			
+
+<section class="cols cols4"> 
+	<article class="col first"> &nbsp; </article>
+	<article class="col col2" >
+
 	#{form @authenticate()}
+	
+       <fieldset class="s_column">	
+           <legend>Login</legend>
 		
-		#{if flash.error}
-			<p class="error">
-				&{flash.error}
-			</p>
-		#{/if}
-		#{if flash.success}
-			<p class="success">
-				&{flash.success}
-			</p>
-		#{/if}
-	
-		<p id="username-field">
-			<label for="username">&{'secure.username'}</label>
-			<input type="text" name="username" id="username" value="${flash.username}" />
-		</p>
-		<p id="password-field">
-			<label for="password">&{'secure.password'}</label>
-			<input type="password" name="password" id="password" value="" />
-		</p>
-		<p id="remember-field">
-			<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
-			<label>&{'secure.remember'}</label>
-		</p>
-		<p id="signin-field">
-			<input type="submit" id="signin" value="&{'secure.signin'}" />
+			#{if flash.error}
+				<p class="error brdr">
+					&{flash.error}
+				</p>
+			#{/if}
+			#{if flash.success}
+				<p class="success brdr">
+					&{flash.success}
+				</p>
+			#{/if}
+		
+			<div>
+				<label for="username">&{'secure.username'}</label>
+				<input type="text" name="username" id="username" value="${flash.username}" class="shdw"/>
+			</div>
+			<div>
+				<label for="password">&{'secure.password'}</label>
+				<input type="password" name="password" id="password" value="" class="shdw" />
+			</div>
+			<div>
+				<label>&{'secure.remember'}</label>
+				<input type="checkbox" name="remember" id="remember" ${flash.remember ? 'checked="true"' : ''} />
+			</div>
+			<input type="submit" value="&{'secure.signin'}"  class="button blue"/>
 			#{a @Application.index()}Cancel#{/a}
-		</p>	
-		<p id="forgot-field">	
-			#{a @UsersOpen.forgotUsername()}Forgot username#{/a} | #{a @Application.index()}Forgot password#{/a}
-		</p>
+			<div>	
+				#{a @Users.forgotUsername()}Forgot username#{/a} | #{a @Users.forgotPassword()}Forgot password#{/a}
+			</div>
+		</fieldset>
 	#{/form}
+	</article>
 	
-</article>
+	<article class="col"> &nbsp; </article>
+	
+</section>

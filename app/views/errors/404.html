@@ -1,14 +1,19 @@
 #{extends 'main.html' /}
 #{set title:'Page Not Found' /} 
 
-<h2>Page Not Found</h2>
-#{if play.mode.name() == 'DEV'}
-    #{404 result /}
-#{/if}
-#{else}
-    <p>
-        ${result.message}
-    </p>
-#{/else}
-
-Please go to the #{a @Application.index()}Home Page#{/a} and try again.
+<section class="cols"> 
+	<article class="col first" >
+	<h2>Page Not Found</h2>
+	#{if play.mode.name() == 'DEV'}
+	    #{404 result /}
+	#{/if}
+	#{else}
+	    <p>
+	        ${result.message}
+	    </p>
+	#{/else}
+	
+	Please go to the #{a @Application.index()}Home Page#{/a} and try again.
+	
+	</article>
+</section>
