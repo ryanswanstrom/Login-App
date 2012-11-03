@@ -9,6 +9,8 @@ GET     /                                       Application.index
 GET     /robots.txt                             Application.robots
 GET     /humans.txt                             Application.humans
 GET     /sitemap.xml                            Application.sitemap
+GET     /privacy                                Application.privacy
+GET     /termsofservice                         Application.terms
 GET		/profile/{username}						Users.show
 GET		/editProfile							UsersSecure.edit
 POST	/editProfile							UsersSecure.update
