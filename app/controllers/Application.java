@@ -42,5 +42,13 @@ public class Application extends Controller {
         renderBinary(file);
     }
     
+    public static void privacy() {
+        render();
+    }
+    
+    public static void terms() {
+        render();
+    }
+    
 
 }
