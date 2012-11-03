@@ -58,7 +58,7 @@
 		<footer id="bottom">
 				<summary>&copy; 2011 ${play.configuration['application.name']} #{a
 					@Application.index()}@@{Application.index}#{/a}</summary>
-				<p>Privacy Policy | Terms of Service</p>
+				<p>#{a @Application.privacy()}Privacy Policy#{/a} | #{a @Application.terms()}Terms of Service#{/a}</p>
 		</footer>
 	
 	</div>
