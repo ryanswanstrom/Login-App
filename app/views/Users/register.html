@@ -1,33 +1,42 @@
 #{extends 'main.html' /}
 #{set 'title'} Register #{/set}
 
-<section class="cols cols4"> 
-	<article class="col first"> &nbsp; </article>
-	<article class="col col2" >
-	#{form @Users.add() }	
-	
-		<fieldset class="s_column">	
-			<legend>Please Register</legend>	
-			<div>
-				<label for="user.username" >Username #{ifError 'user.username'} <span class="error">#{error 'user.username' /}</span> #{/ifError}</label>
-				<input type="text" name="user.username" value="${flash['user.username']}" class="shdw" /> 
-			</div>
-			<div>
-				<label for="user.email" >Email #{ifError 'user.email'} <span class="error">#{error 'user.email' /}</span>   #{/ifError}</label>
-				<input type="text" name="user.email" value="${flash['user.email']}" class="shdw" /> 
-			</div>
-			<div>
-				<label for="password" >Password #{ifError 'password'} <span class="error">#{error 'password' /}</span>  #{/ifError}</label>
-				<input type="password" name="password" class="shdw"/> 
-			</div>
-			<div>
-				<label for="pwConfirm" >Password confirmation #{ifError 'pwConfirm'} <span class="error">#{error 'pwConfirm' /}</span>  #{/ifError}</label> 
-				<input type="password" name="pwConfirm" class="shdw"/>  
-			</div>	
-			<input type="submit" value="Register" class="button blue"/>
-		</fieldset>
-	#{/form}
-	</article>
-	<article class="col"> &nbsp; </article>
-	
-</section>
+<div class="row-fluid">
+    <div class="span6 offset3">
+        #{form @Users.add(),class:'form-horizontal'}	
+
+        <fieldset>	
+            <legend>Please Register</legend>	
+            <div class="control-group">
+                <label class="control-label" for="user.username" >Username #{ifError 'user.username'} <span class="error">#{error 'user.username' /}</span> #{/ifError}</label>
+                <div class="controls">
+                    <input type="text" name="user.username" value="${flash['user.username']}"  placeholder="Username"/> 
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="user.email" >Email #{ifError 'user.email'} <span class="error">#{error 'user.email' /}</span>   #{/ifError}</label>
+                <div class="controls">
+                    <input type="text" name="user.email" value="${flash['user.email']}"  placeholder="Email"/> 
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" >Password #{ifError 'password'} <span class="error">#{error 'password' /}</span>  #{/ifError}</label>
+                <div class="controls">
+                    <input type="password" name="password" placeholder="Password"/> 
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="pwConfirm" >Password confirmation #{ifError 'pwConfirm'} <span class="error">#{error 'pwConfirm' /}</span>  #{/ifError}</label> 
+                <div class="controls">
+                    <input type="password" name="pwConfirm" placeholder="Password Confirmation"/>  
+                </div>
+            </div>	
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary">Register</button> 
+                </div>
+            </div>
+        </fieldset>
+        #{/form}
+    </div>
+</div>
