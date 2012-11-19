@@ -1,54 +1,85 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<section class="cols cols4"> 
-    <article class="col side-nav first">
-		<h6>Features</h6>           
-		<ul>
-			<li>Login</li>
-			<li>Logout</li>
-			<li>Register</li>
-			<li>Forgot Password (coming)</li>
-			<li>Forgot Username</li>			
-			<li>Privacy Policy (coming)</li>
-			<li>Terms of Service (coming)</li>
-			<li>Nice CSS Layout</li>
-			<li>Sticky Footer</li>
-			<li>Open Source(<a href="http://www.opensource.org/licenses/mit-license.php" target="_new">MIT License</a>)</li>
-		</ul>
-		<br/>
-		<h6>Special Thanks</h6>           
-		<ul>
-			<li><a href="http://www.playframework.org" target="_new">Play Framework</a></li>			
-			<li><a href="http://framework.gregbabula.info/" target="_new">G5 Framework - CSS</a></li>			
-			<li><a href="http://www.heroku.com" target="_new">Heroku - hosting</a></li>
-			<li><a href="http://www.github.com" target="_new">Github - Source Code</a></li>
-			<li><a href="http://automattic.com" target="_new">Automattic - Privacy Policy</a></li>
-			<li><a href="http://wordpress.com" target="_new">Wordpress - Terms of Service</a></li>
-		</ul>
-    </article>
-	<article class="col col2" >
-	
-		<div class="cols vis-break brdr cntrtxt btmspc-dbl">
-		    <h2>Welcome to the <br/> ${play.configuration['application.name']}</h2>
-		</div>
-		
-		<p>
-			This app is meant to be the beginning of a web application.
-			Start from this template and modify as needed. Get your
-			app up running quickly.
-		</p>
-		
-	</article>
-	
-	<article class="col side-nav"> 
-        <h6>Users</h6>            
-		<ul>
-			#{list users}
-				<li>#{a @Users.show(_.username)}${_.username}#{/a}</li>
-			#{/list}
-		</ul>
-	</article>
+<div class="row-fluid">
+    <section class="span3">
+        <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+                <li class="nav-header">Features</li>
+                <li class="active">#{a @Application.index()}Homepage#{/a}</li>
+                <li>Login</li>
+                <li>Logout</li>
+                <li>Register</li>
+                <li>Forgot Password (coming)</li>
+                <li>Forgot Username</li>			
+                <li>Privacy Policy</li>
+                <li>Terms of Service</li>
+                <li>Nice CSS Layout</li>
+                <li><a href="http://www.opensource.org/licenses/mit-license.php" target="_new">MIT License</a></li>
+
+                <li class="nav-header">Special Thanks</li>
+                <li><a href="http://www.playframework.org" target="_new">Play Framework 1.2.5</a></li>			
+                <li><a href="http://twitter.github.com/bootstrap/index.html" target="_new">Twitter Bootstrap - CSS</a></li>			
+                <li><a href="http://www.heroku.com" target="_new">Heroku - hosting</a></li>
+                <li><a href="http://www.github.com" target="_new">Github - Source Code</a></li>
+                <li><a href="http://automattic.com" target="_new">Automattic - Privacy Policy</a></li>
+                <li><a href="http://wordpress.com" target="_new">Wordpress - Terms of Service</a></li>
+
+                <li class="nav-header">Users</li>
+                #{list users}
+                <li>#{a @Users.show(_.username)}${_.username}#{/a}</li>
+                #{/list}
+            </ul>
+        </div><!--/.well -->
+    </section><!--/span-->
+    <section class="span9">
+        <div class="hero-unit">
+            <h1>${play.configuration['application.name']}</h1>
+            <p>
+                This app is meant to be the beginning of a web application.
+                Start from this template and modify as needed. Get your
+                app up running quickly.
+            </p>
+            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        </div>
+        <div class="row-fluid">
+            <div class="span4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+        </div><!--/row-->
+        <div class="row-fluid">
+            <div class="span4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+        </div><!--/row-->
+    </section><!--/span-->
+</div><!--/row-->
+
+
 </section>
 
 
