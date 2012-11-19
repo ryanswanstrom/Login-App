@@ -1,48 +1,49 @@
 #{extends 'main.html' /}
 #{set title:'Login' /}
 
+<div class="row-fluid">
+    <div class="span6 offset3">
+        #{form @authenticate(),class:'form-horizontal'}
+        <fieldset>	
+            <legend>Login</legend>
 
-<section class="cols cols4"> 
-	<article class="col first"> &nbsp; </article>
-	<article class="col col2" >
+            #{if flash.error}
+            <p class="error brdr">
+                &{flash.error}
+            </p>
+            #{/if}
+            #{if flash.success}
+            <p class="success brdr">
+                &{flash.success}
+            </p>
+            #{/if}
 
-	#{form @authenticate()}
-	
-       <fieldset class="s_column">	
-           <legend>Login</legend>
-		
-			#{if flash.error}
-				<p class="error brdr">
-					&{flash.error}
-				</p>
-			#{/if}
-			#{if flash.success}
-				<p class="success brdr">
-					&{flash.success}
-				</p>
-			#{/if}
-		
-			<div>
-				<label for="username">&{'secure.username'}</label>
-				<input type="text" name="username" id="username" value="${flash.username}" class="shdw"/>
-			</div>
-			<div>
-				<label for="password">&{'secure.password'}</label>
-				<input type="password" name="password" id="password" value="" class="shdw" />
-			</div>
-			<div>
-				<label>&{'secure.remember'}</label>
-				<input type="checkbox" name="remember" id="remember" ${flash.remember ? 'checked="true"' : ''} />
-			</div>
-			<input type="submit" value="&{'secure.signin'}"  class="button blue"/>
-			#{a @Application.index()}Cancel#{/a}
-			<div>	
-				#{a @Users.forgotUsername()}Forgot username#{/a} | #{a @Users.forgotPassword()}Forgot password#{/a}
-			</div>
-		</fieldset>
-	#{/form}
-	</article>
-	
-	<article class="col"> &nbsp; </article>
-	
-</section>
+            <div class="control-group">
+                <label class="control-label" for="username">&{'secure.username'}</label>
+                <div class="controls">
+                    <input type="text" name="username" value="${flash.username}" placeholder="Username"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"  for="password">&{'secure.password'}</label>
+                <div class="controls">
+                    <input type="password" name="password" placeholder="Password"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">&{'secure.remember'}
+                        <input type="checkbox" name="remember" id="remember" ${flash.remember ? 'checked="true"' : ''} />
+                    </label>
+                    <button type="submit" class="btn btn-primary">Sign in</button> 
+                </div>
+            </div>
+            <div class="control-group">	
+                <div class="controls">
+                    #{a @Users.forgotUsername()}Forgot username#{/a} | #{a @Users.forgotPassword()}Forgot password#{/a}
+                </div>
+            </div>
+        </fieldset>
+        #{/form}
+    </div>
+</div>
