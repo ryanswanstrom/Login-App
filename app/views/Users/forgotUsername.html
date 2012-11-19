@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set 'title'} Forgot Username #{/set}
+
+<section class="cols cols4"> 
+	<article class="col first"> &nbsp; </article>
+	<article class="col col2" >
+	
+	#{form @Users.sendUsername() }
+	
+		<fieldset class="s_column">	
+			<legend>Forgot Username</legend>	
+			#{if flash.error}
+				<p class="error brdr">
+					&{flash.error}
+				</p>
+			#{/if}
+			#{if flash.success}
+				<p class="success brdr">
+					&{flash.success}
+				</p>
+			#{/if}         		
+			<div>
+				<label for="email" >Email #{ifError 'email'} <span class="error">#{error 'email' /}</span>   #{/ifError}</label>
+				<input type="text" name="email" value="${flash.email}" class="shdw" /> 
+			</div>	
+			<input type="submit" value="Get Username" class="button blue"/>
+		</fieldset>
+	#{/form}
+	</article>
+
+	<article class="col"> &nbsp; </article>
+	
+</section>

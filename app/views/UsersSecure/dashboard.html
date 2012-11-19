@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set 'title'} My Profile #{/set}
+
+
+<section class="cols cols4"> 
+	<article class="col first"> &nbsp; </article>
+	<article class="col col2" >
+		<h2>My Dashboard</h2>
+		
+		Username: ${user.username}
+		
+		<br />
+		
+		Email: ${user.email}
+	</article>
+</section>
