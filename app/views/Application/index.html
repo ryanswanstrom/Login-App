@@ -11,19 +11,19 @@
                 <li>Logout</li>
                 <li>Register</li>
                 <li>Forgot Password (coming)</li>
-                <li>Forgot Username</li>			
+                <li>Forgot Username</li>
                 <li>Privacy Policy</li>
                 <li>Terms of Service</li>
                 <li>Nice CSS Layout</li>
-                <li><a href="http://www.opensource.org/licenses/mit-license.php" target="_new">MIT License</a></li>
+                <li><a href="http://www.opensource.org/licenses/mit-license.php" target="_blank">MIT License</a></li>
 
                 <li class="nav-header">Special Thanks</li>
-                <li><a href="http://www.playframework.org" target="_new">Play Framework 1.2.5</a></li>			
-                <li><a href="http://twitter.github.com/bootstrap/index.html" target="_new">Twitter Bootstrap - CSS</a></li>			
-                <li><a href="http://www.heroku.com" target="_new">Heroku - hosting</a></li>
-                <li><a href="http://www.github.com" target="_new">Github - Source Code</a></li>
-                <li><a href="http://automattic.com" target="_new">Automattic - Privacy Policy</a></li>
-                <li><a href="http://wordpress.com" target="_new">Wordpress - Terms of Service</a></li>
+                <li><a href="http://www.playframework.org" target="_blank">Play Framework 1.2.5</a></li>
+                <li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap - CSS</a></li>
+                <li><a href="http://www.heroku.com" target="_blank">Heroku - hosting</a></li>
+                <li><a href="http://www.github.com" target="_blank">Github - Source Code</a></li>
+                <li><a href="http://automattic.com" target="_blank">Automattic - Privacy Policy</a></li>
+                <li><a href="http://wordpress.com" target="_blank">Wordpress - Terms of Service</a></li>
 
                 <li class="nav-header">Users</li>
                 #{list users}
@@ -40,7 +40,7 @@
                 Start from this template and modify as needed. Get your
                 app up running quickly.
             </p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            <p>#{a @Users.register(),class:'btn btn-primary btn-large'}Register Now &raquo;#{/a}</p>
         </div>
         <div class="row-fluid">
             <div class="span4">
@@ -78,9 +78,3 @@
         </div><!--/row-->
     </section><!--/span-->
 </div><!--/row-->
-
-
-</section>
-
-
-
