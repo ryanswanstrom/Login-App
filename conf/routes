@@ -11,16 +11,16 @@ GET     /humans.txt                             Application.humans
 GET     /sitemap.xml                            Application.sitemap
 GET     /privacy                                Application.privacy
 GET     /termsofservice                         Application.terms
-GET		/profile/{username}						Users.show
-GET		/editProfile							UsersSecure.edit
-POST	/editProfile							UsersSecure.update
-GET		/register								Users.register
-POST	/register								Users.add
-GET		/dashboard								UsersSecure.dashboard
-GET		/verify/email/{uuid}					Users.activate
-GET		/reset/password/{uuid}  				Users.resetPasswordShow
-GET		/forgot/password						Users.forgotPassword
-GET		/forgot/username						Users.forgotUsername
+GET     /profile/{username}			Users.show
+GET     /editProfile                            UsersSecure.edit
+POST    /editProfile                            UsersSecure.update
+GET     /register                               Users.register
+POST    /register                               Users.add
+GET     /dashboard                              UsersSecure.dashboard
+GET     /verify/email/{uuid}                    Users.activate
+GET     /reset/password/{uuid}                  Users.resetPasswordShow
+GET     /forgot/password                        Users.forgotPassword
+GET     /forgot/username                        Users.forgotUsername
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
