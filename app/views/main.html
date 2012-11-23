@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">
     <title>${play.configuration['application.name']} | #{get 'title' /}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -36,7 +36,7 @@
                     #{a @Application.index(), class:'brand'}${play.configuration['application.name']}#{/a}
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active">#{a @Application.index()}Home#{/a}</li>
                             <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li class="dropdown">
@@ -52,13 +52,13 @@
                                 </ul>
                             </li>
                         </ul>
-                        <span class="navbar-text pull-right">                
+                        <span class="navbar-text pull-right">
                             #{if session.get('username')}
-                            Welcome #{a @UsersSecure.dashboard(), class:'navbar-link'}${session.get('username')}#{/a}( #{a @UsersSecure.edit()}Edit#{/a} ) | 
+                            Welcome #{a @UsersSecure.dashboard(), class:'navbar-link'}${session.get('username')}#{/a}( #{a @UsersSecure.edit()}Edit#{/a} ) |
                             #{a @Secure.logout(), class:'navbar-link'}Logout#{/a}
                             #{/if}
                             #{else}
-                            #{a @Secure.login(), class:'navbar-link'}Login#{/a} | 
+                            #{a @Secure.login(), class:'navbar-link'}Login#{/a} |
                             #{a @Users.register(), class:'navbar-link' }Register#{/a}
                             #{/else}
                         </span>
