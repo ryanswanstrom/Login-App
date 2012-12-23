@@ -3,40 +3,42 @@
 
 <div class="row-fluid">
     <div class="span6 offset3">
-        #{form @Users.add(),class:'form-horizontal'}	
+        #{form @Users.add(),class:'form-horizontal'}
 
-        <fieldset>	
-            <legend>Please Register</legend>	
-            <div class="control-group">
-                <label class="control-label" for="user.username" >Username #{ifError 'user.username'} <span class="error">#{error 'user.username' /}</span> #{/ifError}</label>
-                <div class="controls">
-                    <input type="text" name="user.username" value="${flash['user.username']}"  placeholder="Username"/> 
+        <div class="well">
+            <fieldset>
+                <legend>Please Register</legend>
+                <div class="control-group">
+                    <label class="control-label" for="user.username" >Username #{ifError 'user.username'} <span class="error">#{error 'user.username' /}</span> #{/ifError}</label>
+                    <div class="controls">
+                        <input type="text" name="user.username" value="${flash['user.username']}"  placeholder="Username"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="user.email" >Email #{ifError 'user.email'} <span class="error">#{error 'user.email' /}</span>   #{/ifError}</label>
-                <div class="controls">
-                    <input type="text" name="user.email" value="${flash['user.email']}"  placeholder="Email"/> 
+                <div class="control-group">
+                    <label class="control-label" for="user.email" >Email #{ifError 'user.email'} <span class="error">#{error 'user.email' /}</span>   #{/ifError}</label>
+                    <div class="controls">
+                        <input type="text" name="user.email" value="${flash['user.email']}"  placeholder="Email"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="password" >Password #{ifError 'password'} <span class="error">#{error 'password' /}</span>  #{/ifError}</label>
-                <div class="controls">
-                    <input type="password" name="password" placeholder="Password"/> 
+                <div class="control-group">
+                    <label class="control-label" for="password" >Password #{ifError 'password'} <span class="error">#{error 'password' /}</span>  #{/ifError}</label>
+                    <div class="controls">
+                        <input type="password" name="password" placeholder="Password"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="pwConfirm" >Password confirmation #{ifError 'pwConfirm'} <span class="error">#{error 'pwConfirm' /}</span>  #{/ifError}</label> 
-                <div class="controls">
-                    <input type="password" name="pwConfirm" placeholder="Password Confirmation"/>  
+                <div class="control-group">
+                    <label class="control-label" for="pwConfirm" >Password confirmation #{ifError 'pwConfirm'} <span class="error">#{error 'pwConfirm' /}</span>  #{/ifError}</label>
+                    <div class="controls">
+                        <input type="password" name="pwConfirm" placeholder="Password Confirmation"/>
+                    </div>
                 </div>
-            </div>	
-            <div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="btn btn-primary">Register</button> 
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
                 </div>
-            </div>
-        </fieldset>
+            </fieldset>
+        </div>
         #{/form}
     </div>
 </div>
