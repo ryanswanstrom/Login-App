@@ -4,46 +4,48 @@
 <div class="row-fluid">
     <div class="span6 offset3">
         #{form @authenticate(),class:'form-horizontal'}
-        <fieldset>	
-            <legend>Login</legend>
 
-            #{if flash.error}
-            <p class="error brdr">
-                &{flash.error}
-            </p>
-            #{/if}
-            #{if flash.success}
-            <p class="success brdr">
-                &{flash.success}
-            </p>
-            #{/if}
+        <div class="well">
+            <fieldset>
+                <legend>Login</legend>
+                #{if flash.error}
+                <p class="alert alert-error">
+                    &{flash.error}
+                </p>
+                #{/if}
+                #{if flash.success}
+                <p class="alert alert-success">
+                    &{flash.success}
+                </p>
+                #{/if}
 
-            <div class="control-group">
-                <label class="control-label" for="username">&{'secure.username'}</label>
-                <div class="controls">
-                    <input type="text" name="username" value="${flash.username}" placeholder="Username"/>
+                <div class="control-group">
+                    <label class="control-label" for="username">&{'secure.username'}</label>
+                    <div class="controls">
+                        <input type="text" name="username" value="${flash.username}" placeholder="Username"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label"  for="password">&{'secure.password'}</label>
-                <div class="controls">
-                    <input type="password" name="password" placeholder="Password"/>
+                <div class="control-group">
+                    <label class="control-label"  for="password">&{'secure.password'}</label>
+                    <div class="controls">
+                        <input type="password" name="password" placeholder="Password"/>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <label class="checkbox">&{'secure.remember'}
-                        <input type="checkbox" name="remember" id="remember" ${flash.remember ? 'checked="true"' : ''} />
-                    </label>
-                    <button type="submit" class="btn btn-primary">Sign in</button> 
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">&{'secure.remember'}
+                            <input type="checkbox" name="remember" id="remember" ${flash.remember ? 'checked="true"' : ''} />
+                        </label>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">	
-                <div class="controls">
-                    #{a @Users.forgotUsername()}Forgot username#{/a} | #{a @Users.forgotPassword()}Forgot password#{/a}
+                <div class="control-group">
+                    <div class="controls">
+                        #{a @Users.forgotUsername()}Forgot username#{/a} | #{a @Users.forgotPassword()}Forgot password#{/a}
+                    </div>
                 </div>
-            </div>
-        </fieldset>
+            </fieldset>
+        </div>
         #{/form}
     </div>
 </div>
