@@ -5,10 +5,12 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Date;
 
+import java.util.List;
 import models.BaseModel.Valid;
 import models.PasswordReset;
 import models.User;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -74,7 +76,7 @@ public class Users extends Controller {
             Validation.addError("password", "The password cannot be encoded properly.");
             Application.index();
         }
-
+        user.username = StringUtils.lowerCase(user.username);
         if (!user.validateAndCreate()) {
             Logger.error("validation failed: %s", user);
             Validation.keep();
@@ -107,11 +109,11 @@ public class Users extends Controller {
 
     /**
      * this will display the public page for any username
-     * 
+     *
      * @param username
      */
     public static void show(String username) {
-        User user = User.find("byUsername", username).first();
+        User user = User.findByUsername(username);
         notFoundIfNull(user);
         render(user);
     }
@@ -188,8 +190,9 @@ public class Users extends Controller {
         render(user);
     }
 
-    public static void resetPassword(String username, @Required @MinSize(4) String password,
+    public static void resetPassword(@Required String username, @Required @MinSize(4) String password,
             @Required @Equals("password") String pwConfirm) throws Throwable {
+        //TODO: check validation
         User user = User.findByUsername(username);
         if (null == user) {
             flash.error("username not found");
@@ -217,6 +220,12 @@ public class Users extends Controller {
             Validation.keep();
             params.flash();
             resetPasswordShow(user.getId().toString());
+        }
+        // disable all reset password links for this user
+        List<PasswordReset> pwresets = PasswordReset.find("byUserAndValid", user, Valid.Y).fetch();
+        for (PasswordReset pr : pwresets) {
+            pr.valid = Valid.N;
+            pr.save();
         }
         flash.success("password reset, please login");
         flash.put("username", user.username);

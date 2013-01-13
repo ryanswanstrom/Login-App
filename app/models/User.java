@@ -6,6 +6,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import play.data.validation.Email;
 import play.data.validation.Match;
@@ -17,7 +18,7 @@ import play.data.validation.Required;
 public class User extends BaseModel {
 
     @Required
-    @Match(value = "[a-zA-Z0-9\\.]+", message = "validation.username")
+    @Match(value = "[a-z0-9\\.]+", message = "validation.username")
     @Column(unique = true)
     @MinSize(2)
     @MaxSize(100)
@@ -54,7 +55,7 @@ public class User extends BaseModel {
     }
 
     public static <T extends User> T findByUsername(String username) {
-        return User.find("byUsernameAndValidAndActive", username, Valid.Y, Valid.Y).first();
+        return User.find("byUsernameAndValidAndActive", StringUtils.lowerCase(username), Valid.Y, Valid.Y).first();
 
     }
 }

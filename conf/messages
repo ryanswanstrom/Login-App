@@ -1,4 +1,5 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
-validation.username = username can only contain letters and numbers
+validation.username = username can only contain numbers and lowercase letters
+validation.required = %s is required

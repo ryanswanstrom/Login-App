@@ -2,15 +2,18 @@
 #{set 'title'} My Profile #{/set}
 
 
-<section class="cols cols4"> 
-	<article class="col first"> &nbsp; </article>
-	<article class="col col2" >
-		<h2>My Dashboard</h2>
-		
-		Username: ${user.username}
-		
-		<br />
-		
-		Email: ${user.email}
-	</article>
-</section>
+<div class="row-fluid">
+    <div class="span6 offset3">
+        <h2>My Dashboard</h2>
+
+        Username: ${user.username}
+
+        <br />
+
+        Email: ${user.email}
+        <p>
+            This will be an internal dashboard after ${user.username} has logged
+            in to the site.
+        </p>
+    </div>
+</div>

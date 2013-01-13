@@ -1,10 +1,9 @@
 #{extends 'main.html' /}
-#{set title:'Error Occurred' /} 
+#{set title:'Error Occurred' /}
 
 
-<section class="cols cols4"> 
-	<article class="col first"> &nbsp; </article>
-	<article class="col col2" >
+<div class="row-fluid">
+    <div class="span8 offset2">
 	<h2>Unknown Error Occured</h2>
 	#{if play.mode.name() == 'DEV'}
 	    #{500 exception /}
@@ -17,9 +16,9 @@
 	        </p>
 	    #{/if}
 	#{/else}
-	
+
 	Please go to the #{a @Application.index()}Home Page#{/a} and try again.
-	</article>
-</section>
-	
+	</div>
+</div>
+
 

@@ -17,10 +17,10 @@
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="@{'/public/img/favicon.png'}">
     <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
     </style>
 </head>
 <body>
@@ -76,13 +76,15 @@
 
         <hr>
         <footer>
-            <summary>
-                &copy; ${new Date().format("yyyy")} ${play.configuration['application.name']} #{a
-                @Application.index()}@@{Application.index}#{/a}
-            </summary>
-            <p>
-                #{a @Application.privacy()}Privacy Policy#{/a} | #{a @Application.terms()}Terms of Service#{/a}
-            </p>
+            <center>
+                <summary>
+                    &copy; ${new Date().format("yyyy")} ${play.configuration['application.name']} #{a
+                    @Application.index()}@@{Application.index}#{/a}
+                </summary>
+                <p>
+                    #{a @Application.privacy()}Privacy Policy#{/a} | #{a @Application.terms()}Terms of Service#{/a}
+                </p>
+            </center>
         </footer>
     </div>
 

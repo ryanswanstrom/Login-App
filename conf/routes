@@ -5,7 +5,7 @@
 # Home page
 GET     /                                       Application.index
 # Import Secure routes
-*      /                						module:secure
+*       /                                       module:secure
 GET     /robots.txt                             Application.robots
 GET     /humans.txt                             Application.humans
 GET     /sitemap.xml                            Application.sitemap

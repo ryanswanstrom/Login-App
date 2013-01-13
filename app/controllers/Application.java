@@ -14,7 +14,7 @@ public class Application extends Controller {
     	List<User> users = User.find("byValidAndActive", Valid.Y, Valid.Y).fetch(10);
         render(users);
     }
-    
+
     /**
      * action to open the robots.txt file.
      */
@@ -32,7 +32,7 @@ public class Application extends Controller {
         response.cacheFor("24h");
         renderBinary(file);
     }
-  
+
     /**
      * action to open the sitemap.xml file
      */
@@ -41,14 +41,14 @@ public class Application extends Controller {
         response.cacheFor("24h");
         renderBinary(file);
     }
-    
+
     public static void privacy() {
         render();
     }
-    
+
     public static void terms() {
         render();
     }
-    
+
 
 }
