@@ -43,6 +43,14 @@ public class User extends BaseModel {
         this.created = new Date();
     }
 
+    public User(String uname, String email, String pw, String salt) {
+        this();
+        this.username = uname;
+        this.email = email;
+        this.password = pw;
+        this.salt = salt;
+    }
+
     public void activate() {
         this.active = Valid.Y;
         this.uuid = null;
@@ -56,6 +64,5 @@ public class User extends BaseModel {
 
     public static <T extends User> T findByUsername(String username) {
         return User.find("byUsernameAndValidAndActive", StringUtils.lowerCase(username), Valid.Y, Valid.Y).first();
-
     }
 }
