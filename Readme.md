@@ -18,7 +18,7 @@ This app provides the basics of quickly setting up a Play Framework 1.2 web appl
   
 # Getting Started
 
-  1. git fork ...
+  1. git clone https://github.com/swGooF/Login-App.git
   1. heroku create YourAppName
   1. Update **application.name** in the *conf/application.conf* file with Whatever your application name is
   1. Update the email settings in *conf/application.conf* with your SMTP server information
